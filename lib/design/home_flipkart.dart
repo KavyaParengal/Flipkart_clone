@@ -1,7 +1,7 @@
 
 
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flipkart_clone/home_grocery.dart';
+import 'package:flipkart_clone/design/home_grocery.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';

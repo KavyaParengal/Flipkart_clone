@@ -1,5 +1,5 @@
 
-import 'package:flipkart_clone/home_flipkart.dart';
+import 'package:flipkart_clone/design/home_flipkart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
