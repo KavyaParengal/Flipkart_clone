@@ -1,10 +1,13 @@
 
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flipkart_clone/design/account.dart';
 import 'package:flipkart_clone/design/home_grocery.dart';
+import 'package:flipkart_clone/provider/fav_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
+import 'package:provider/provider.dart';
 
 class Home_page_flipkart extends StatefulWidget {
   const Home_page_flipkart({Key? key}) : super(key: key);
@@ -28,8 +31,29 @@ class _Home_page_flipkartState extends State<Home_page_flipkart> {
   ];
   Widget currentScreen = Home_page_flipkart();
 
+  List recent_images=[
+    'images/recent1.jpg',
+    'images/recent2.jpg',
+    'images/recent3.jpg',
+    'images/recent4.jpg',
+    'images/recent5.jpg',
+    'images/recent6.jpg',
+    'images/recent7 (2).jpg'
+  ];
+  List item_name=[
+    'Plants Saplings',
+    'Plant Seeds',
+    'Cups & Saucers',
+    'Wrist Watches',
+    'Keybords',
+    "Women's Kurtas",
+    'Mobiles'];
+
   @override
   Widget build(BuildContext context) {
+
+    final object = Provider.of<FavProvider_class>(context);
+
     return Scaffold(
       bottomNavigationBar: Container(
         padding: EdgeInsets.symmetric(horizontal: 17,vertical: 10),
@@ -95,7 +119,7 @@ class _Home_page_flipkartState extends State<Home_page_flipkart> {
                   //   currentScreen=Profile();
                      currentTab = 3;
                   });
-                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Account()));
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -127,7 +151,177 @@ class _Home_page_flipkartState extends State<Home_page_flipkart> {
           ),
       ),
 
-
+      // appBar: AppBar(
+      //   backgroundColor: Colors.white,
+      //     toolbarHeight: 90,
+      //     // Set this height
+      //     flexibleSpace: Container(
+      //       child: Column(
+      //         children: [
+      //           Padding(
+      //             padding: const EdgeInsets.only(left: 10,right: 10,top: 3),
+      //             child: Row(
+      //               children:
+      //               [
+      //                 Expanded(
+      //                   child: GestureDetector(
+      //                     onTap: ()
+      //                     {
+      //                       setState(() {
+      //                         isflip = true ;
+      //                       });
+      //                     },
+      //                     child: Container(
+      //                       height: MediaQuery.of(context).size.height*.045,
+      //                       decoration: BoxDecoration(
+      //                         borderRadius: BorderRadius.circular(8.0),
+      //                         color: isflip ? Colors.blue[800] : Colors.grey[300],
+      //                       ),
+      //                       child: Row(
+      //                         mainAxisAlignment: MainAxisAlignment.center,
+      //                         children: [
+      //                           Image(
+      //                             image: AssetImage('images/flipkart-icon.png',),
+      //                             width: 22,
+      //                             height: 22,
+      //                           ),
+      //                           SizedBox(width: 10,),
+      //                           TextButton(
+      //                             onPressed: (){
+      //                               Navigator.push(context, MaterialPageRoute(builder: (context)=>Home_page_flipkart()));
+      //                             },
+      //                             child: Text('Flipkart',
+      //                               style: TextStyle(
+      //                                   fontSize: 16.0 ,
+      //                                   fontWeight: FontWeight.bold,
+      //                                   color: Colors.white
+      //                               ),
+      //                             ),
+      //                           )
+      //                         ],
+      //                       ),
+      //                     ),
+      //                   ),
+      //                 ),
+      //                 const SizedBox(width: 20.0,),
+      //                 Expanded(
+      //                     child: GestureDetector(
+      //                         onTap:()
+      //                         {
+      //                           setState(() {
+      //                             isflip = false ;
+      //                           });
+      //
+      //                         },
+      //                         child: Container(
+      //                           height: MediaQuery.of(context).size.height*.045,
+      //                           decoration: BoxDecoration(
+      //                             borderRadius: BorderRadius.circular(8.0),
+      //                             color: isflip ? Colors.grey[300] : Colors.green[800],
+      //                           ),
+      //                           child: Row(
+      //                             mainAxisAlignment: MainAxisAlignment.center,
+      //                             children:
+      //                             [
+      //                               Image(image:
+      //                               AssetImage('images/flipkart-icon.png'),
+      //                                 width: 22,
+      //                                 height: 22,
+      //                               ),
+      //                               SizedBox(width: 10,),
+      //                               TextButton(
+      //                                 onPressed: () {
+      //                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage_Grocery()));
+      //                                 },
+      //                                 child: Text('Grocery',
+      //                                   style: TextStyle(
+      //                                       fontSize: 16.0 ,
+      //                                       fontWeight: FontWeight.bold,
+      //                                       color: Colors.black
+      //                                   ),
+      //                                 ),
+      //                               ),
+      //                             ],
+      //                           ),
+      //                         )
+      //                     )
+      //                 )
+      //               ],
+      //             ),
+      //           ),
+      //           SizedBox(height: 12,),
+      //           Padding(
+      //             padding: const EdgeInsets.only(left: 10,right: 10,top: 3),
+      //             child: Row(
+      //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //               children: [
+      //                 Column(
+      //                   children: [
+      //                     Text('Brand Mall',style: TextStyle(color: Colors.grey[700],fontSize: 12),),
+      //                     SizedBox(height: 4,),
+      //                     FlutterSwitch(
+      //                       width: 55.0,
+      //                       height: 20.0,
+      //                       valueFontSize: 12.0,
+      //                       activeTextFontWeight: FontWeight.w500,
+      //                       inactiveTextFontWeight: FontWeight.w500,
+      //                       value: status,
+      //                       showOnOff: true,
+      //                       toggleSize: 12,
+      //                       activeColor: Colors.black,
+      //                       inactiveColor: Colors.grey.shade300,
+      //                       activeText: 'ON',
+      //                       activeTextColor: Colors.white,
+      //                       inactiveText: 'OFF',
+      //                       inactiveTextColor: Colors.black,
+      //                       onToggle: (val) {
+      //                         setState(() {
+      //                           status = val;
+      //                         });
+      //                       },
+      //                     ),
+      //                   ],
+      //                 ),
+      //                 Container(
+      //                   height: MediaQuery.of(context).size.height*.055,
+      //                   width: MediaQuery.of(context).size.width*.7,
+      //                   child: TextField(
+      //                     cursorColor: Colors.grey,
+      //                     controller: _searchController,
+      //                     decoration: InputDecoration(
+      //                       hintText: 'Search for products',
+      //                       hintStyle: TextStyle(color: Colors.grey,),
+      //                       suffixIcon: Row(
+      //                         mainAxisAlignment: MainAxisAlignment.end,
+      //                         children: [
+      //                           IconButton(
+      //                             icon: Icon(Icons.keyboard_voice_outlined,size: 28,),
+      //                             onPressed: () {},
+      //                           ),
+      //                           IconButton(
+      //                             icon: Icon(Icons.camera_alt_outlined,size: 28,),
+      //                             onPressed: () {},
+      //                           ),
+      //                         ],
+      //                       ),
+      //                       prefixIcon: IconButton(
+      //                         icon: Icon(Icons.search,size: 28,),
+      //                         onPressed: () {},
+      //                       ),
+      //                       border: OutlineInputBorder(
+      //                         borderRadius: BorderRadius.circular(23.0),
+      //                       ),
+      //                     ),
+      //                   ),
+      //                 ),
+      //               ],
+      //             ),
+      //           ),
+      //           SizedBox(height: 10,),
+      //         ],
+      //       ),
+      //     )
+      // ),
 
       body: SingleChildScrollView(
         child: SafeArea(
@@ -388,23 +582,53 @@ class _Home_page_flipkartState extends State<Home_page_flipkart> {
                 padding: EdgeInsets.only(right: 8,left: 8,top: 12),
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.2,
-                child: ListView(
+                child: ListView.builder(
+                  itemCount: recent_images.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context,index){
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 3,right: 8),
+                      child: Container(
+                        width: 120,
+                        height: 120,
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.grey,
+                            ),
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        child: Column(
+                          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                width: 120,
+                                height: 120,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    image: DecorationImage(
+                                        image: AssetImage(recent_images[index])
+                                    )
+                                ),
+                                child: Align(
+                                  alignment: Alignment.topRight,
+                                  child: IconButton(
+                                    onPressed: (){
+                                      object.favorites(recent_images[index], item_name[index]);
+                                    },
+                                    icon: object.icn_change(recent_images[index],item_name[index]) ?
+                                    Icon(Icons.favorite,color: Colors.red,) :
+                                    Icon(Icons.favorite_outline,color: Colors.grey.shade500,),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 5,),
+                              Text(item_name[index],style: TextStyle(fontSize: 13,fontWeight: FontWeight.w300),textAlign: TextAlign.center,)
+                            ]
+                        ),
+                      ),
+                    );
+                  },
                   scrollDirection: Axis.horizontal,
-                  children: [
-                    buildContainer_recentView('images/recent1.jpg','Plants Saplings'),
-                    SizedBox(width: 8,),
-                    buildContainer_recentView('images/recent2.jpg','Plant Seeds'),
-                    SizedBox(width: 8,),
-                    buildContainer_recentView('images/recent3.jpg','Cups & Saucers'),
-                    SizedBox(width: 8,),
-                    buildContainer_recentView('images/recent4.jpg','Wrist Watches'),
-                    SizedBox(width: 8,),
-                    buildContainer_recentView('images/recent5.jpg','Keybords'),
-                    SizedBox(width: 8,),
-                    buildContainer_recentView('images/recent6.jpg',"Women's Kurtas"),
-                    SizedBox(width: 8,),
-                    buildContainer_recentView('images/recent7 (2).jpg','Mobiles'),
-                  ],
                 ),
               ),
               SizedBox(height: 6,),
@@ -417,16 +641,6 @@ class _Home_page_flipkartState extends State<Home_page_flipkart> {
                 padding: EdgeInsets.only(right: 8,left: 8,top: 7),
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.25,
-                // decoration: BoxDecoration(
-                //     boxShadow: <BoxShadow>[
-                //       BoxShadow(
-                //           color: Colors.black54,
-                //           blurRadius: 2.0,
-                //           offset: Offset(0.0, 0.75),
-                //         blurStyle: BlurStyle.normal
-                //       )
-                //     ],
-                // ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -441,16 +655,6 @@ class _Home_page_flipkartState extends State<Home_page_flipkart> {
                 padding: EdgeInsets.only(right: 8,left: 8,top: 2),
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.25,
-                // decoration: BoxDecoration(
-                //     boxShadow: <BoxShadow>[
-                //       BoxShadow(
-                //           color: Colors.black54,
-                //           blurRadius: 2.0,
-                //           offset: Offset(0.0, 0.75),
-                //         blurStyle: BlurStyle.normal
-                //       )
-                //     ],
-                // ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -492,34 +696,6 @@ class _Home_page_flipkartState extends State<Home_page_flipkart> {
                     ]
                 ),
               );
-  }
-
-  Container buildContainer_recentView(String image, String text) {
-    return Container(
-                  width: 120,
-                  height: 120,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.grey,
-                    ),
-                    borderRadius: BorderRadius.circular(10)
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 2,right: 2,top: 2),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.asset(image,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 5,),
-                      Text(text,style: TextStyle(fontSize: 13,fontWeight: FontWeight.w300),textAlign: TextAlign.center,)
-                    ]
-                  ),
-                );
   }
 
   GestureDetector buildContainer_offer(String image, String text) {
